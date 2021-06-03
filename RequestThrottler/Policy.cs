@@ -3,6 +3,7 @@
     public enum Policy
     {
         Linear,
-        Exponential
+        Exponential,
+        Ban
     }
 }

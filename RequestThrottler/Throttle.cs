@@ -4,17 +4,23 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace RequestThrottler
 {
+    public class ThrottleArguments
+    {
+        public TimeInterval TimeInterval { get; set; }
+        public bool PersistIpBan { get; set; }
+    }
+    
     public class Throttle : ActionFilterAttribute
     {
         private readonly Policy _policy;
-        private readonly TimeInterval _timeInterval;
+        private readonly ThrottleArguments _throttleArguments;
 
         public Throttle(
             Policy policy, 
-            TimeInterval timeInterval)
+            ThrottleArguments throttleArguments = null)
         {
             _policy = policy;
-            _timeInterval = timeInterval;
+            _throttleArguments = throttleArguments;
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)
@@ -29,18 +35,11 @@ namespace RequestThrottler
 
                 if (cachedValues.SavedDateTime < DateTime.UtcNow)
                 {
-                    // if (cachedValues.Iterations > 10)
-                    // {
-                    //     cache.Remove(ipAddress);
-                    //     return;
-                    // }
-                    
                     cache.ResetCacheValues(ipAddress, new CachedValues
                     {
                         SavedDateTime = CalculateWhenRequestShouldBeValid(
-                            cachedValues, 
                             _policy, 
-                            _timeInterval)
+                            _throttleArguments.TimeInterval)
                     });
                     return;
                 }
@@ -53,7 +52,10 @@ namespace RequestThrottler
             
             if (!exists)
             {
-                var date = CalculateWhenRequestShouldBeValid(cachedValues, _policy, _timeInterval);
+                var date = CalculateWhenRequestShouldBeValid(
+                    _policy, 
+                    _throttleArguments.TimeInterval);
+
                 cache.Set(ipAddress, new CachedValues
                 {
                     SavedDateTime = date
@@ -61,8 +63,7 @@ namespace RequestThrottler
             }
         }
         
-        public DateTime CalculateWhenRequestShouldBeValid(
-            CachedValues cachedValues, 
+        public DateTime CalculateWhenRequestShouldBeValid( 
             Policy policy, 
             TimeInterval timeInterval)
         {
