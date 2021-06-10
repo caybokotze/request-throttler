@@ -10,9 +10,11 @@
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="5.0.6" />
         <PackageReference Include="NExpect" Version="1.0.212" />
         <PackageReference Include="NExpect.Matchers.NSubstitute" Version="1.0.212" />
+        <PackageReference Include="NSubstitute" Version="4.2.2" />
         <PackageReference Include="NUnit" Version="3.12.0" />
         <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+        <PackageReference Include="PeanutButter.RandomGenerators" Version="2.0.22" />
     </ItemGroup>
 
     <ItemGroup>

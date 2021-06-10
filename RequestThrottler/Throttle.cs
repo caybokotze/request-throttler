@@ -16,11 +16,16 @@ namespace RequestThrottler
         private readonly ThrottleArguments _throttleArguments;
 
         public Throttle(
-            Policy policy, 
-            ThrottleArguments throttleArguments = null)
+            Policy policy,
+            TimeInterval timeInterval = TimeInterval.FiveMinutes,
+            bool persistIpBan = false)
         {
             _policy = policy;
-            _throttleArguments = throttleArguments;
+            _throttleArguments = new ThrottleArguments
+            {
+                TimeInterval = timeInterval,
+                PersistIpBan = persistIpBan
+            };
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)

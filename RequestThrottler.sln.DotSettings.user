@@ -2,5 +2,8 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=aec59e02_002Df9e8_002D49c4_002D8550_002D1d97d99423b1/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="AssertThatHostBuilderRegisteredIMemoryCache" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::33E09E28-9A4B-4FA6-ADDC-D2C5D12B8D7E::net5.0::RequestThrottler.Tests.HostBuilderTests.AssertThatHostBuilderRegisteredIMemoryCache&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::33E09E28-9A4B-4FA6-ADDC-D2C5D12B8D7E::net5.0::RequestThrottler.Tests.ThrottleTests+Behaviour.AssertThatLinearThrottlingDoesThrottleForOneSecondInterval&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::33E09E28-9A4B-4FA6-ADDC-D2C5D12B8D7E::net5.0::RequestThrottler.Tests.ThrottleTests.FunWithFunc&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::33E09E28-9A4B-4FA6-ADDC-D2C5D12B8D7E::net5.0::RequestThrottler.Tests.ThrottleTests.AggregateFunction&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

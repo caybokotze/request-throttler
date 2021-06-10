@@ -1,12 +1,38 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
+        <Title>RequestThrottler</Title>
+        <Description>Request Throttler just provides the developer with a action filter decorator which the developer can use on endpoints that are required to be throttled.</Description>
+        <Copyright></Copyright>
+        <RepositoryUrl>https://github.com/caybokotze/request-throttler.git</RepositoryUrl>
+        <RepositoryType>github</RepositoryType>
+        <Authors>Caybo Kotze</Authors>
+        <PackageReleaseNotes>First version of the Request Throttler package.</PackageReleaseNotes>
+        <PackageLicenseFile>License.txt</PackageLicenseFile>
+        <PackageIcon>speedo.jpg</PackageIcon>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-      <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="6.0.0-preview.4.21253.7" />
+      <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="License.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="speedo.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Include="License.txt">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
+      <None Include="speedo.jpg">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
     </ItemGroup>
 
 </Project>

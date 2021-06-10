@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,6 +14,7 @@ namespace RequestThrottler.Tests
     public class TestBase
     {
         public IMemoryCache MemoryCache { get; set; }
+        public IServiceProvider ServiceProvider { get; set; }
         
         [SetUp]
         public async Task SetupApplicationHostEnvironment()
@@ -35,9 +37,9 @@ namespace RequestThrottler.Tests
 
             var host = await hostBuilder.StartAsync();
             var serviceProvider = host.Services;
-            
-            
+
             MemoryCache = serviceProvider.GetService<IMemoryCache>();
+            ServiceProvider = serviceProvider;
         }
     }
 }
